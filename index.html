@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+	
+	<script type="text/javascript" src="./lib/webgl-obj-loader.min.js"></script>
+    <script type="text/javascript" src="./lib/quaternion.min.js"></script>
+    <script type="text/javascript" src="./lib/utils.js"></script>
+    <script type="text/javascript" src="./lib/util_functions.js"></script>
+    <script type="text/javascript" src="listeners.js"></script>
+    <script type="text/javascript" src="rotations.js"></script>
+    <script type="text/javascript" src="drawing.js"></script>
+</head>
+
+<body>
+
+	<canvas id="c"></canvas>
+	
+	<div id="legend">
+		<h1>Legend:</h1>
+		<div class="container">
+			<h3>Moves:</h3>
+			<h4 class="hint">RIGHT ARROW -> Rotate the selected face clockwise</h4>
+			<h4 class="hint">LEFT ARROW -> Rotate the selected face counter-clockwise</h4>
+			<h4>WHILE HOLDING DOWN SHIFT :</h4>
+			<h4 class="hint">UP ARROW -> Rotate the middle upwards</h4>
+			<h4 class="hint">DOWN ARROW -> Rotate the middle downwards</h4>
+			<h4 class="hint">LEFT ARROW -> Rotate the middle left</h4>
+			<h4 class="hint">RIGHT ARROW -> Rotate the middle right</h4>
+		</div>
+		<div class="container">
+			<h3>Face selection:</h3>
+			<h4 class="red">R -> FACE WITH RED CENTER CUBE</h4>
+			<h4 class="green">G -> FACE WITH GREEN CENTER CUBE</h4>
+			<h4 class="white">W -> FACE WITH WHITE CENTER CUBE</h4>
+			<h4 class="yellow">Y -> FACE WITH YELLOW CENTER CUBE</h4>
+			<h4 class="blue">B -> FACE WITH BLUE CENTER CUBE</h4>
+			<h4 class="orange">O -> FACE WITH ORANGE CENTER CUBE</h4>
+			<h2>Currently selected face:</h2>
+			<h3><div id="face"></div></h3>
+		</div>			
+	</div>
+
+	<div id="light">		
+		<p>Direction α:
+			<div id="slider1">0°
+				<input id="alfa" type="range" min="0" max="360" step="1" value="220" onchange="onAlfaChange(this.value);"/>360°<br/>	
+			</div>
+		</p>
+		<p>Direction β:
+			<div id="slider2">0°
+				<input id="beta" type="range" min="0" max="360" step="1" value="100" onchange="onBetaChange(this.value);"/>360°<br/>	
+			</div>
+		</p>
+		<p><b>Select:</b></p>
+        <select id="drop-down" name="" onchange="onDropdownChange(this.value);">
+            <option value="1" selected>No lights</option>
+            <option value="2">Directional Lambert</option>
+        </select>
+	</div>
+</body>
+
+</html>
